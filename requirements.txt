@@ -6,3 +6,4 @@ joblib
 ipykernel
 jinja2
 python-multipart
+gunicorn 
