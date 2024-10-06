@@ -71,3 +71,10 @@ async def api_predict(iris: IrisRequest):
         raise HTTPException(status_code=500, detail=f"Error making prediction: {e}")
     
     return IrisResponse(species=species)
+
+
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 8000))  # Get the port from the environment variable or default to 8000
+    uvicorn.run("main:app", host="0.0.0.0", port=port, log_level="info")
