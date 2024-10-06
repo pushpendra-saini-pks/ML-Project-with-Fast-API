@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Species Prediction</title>
+    <link rel="stylesheet" href="\static\css\style.css">
+    <script>
+        // JavaScript to dynamically change background color based on time of day
+        window.onload = function() {
+            var currentHour = new Date().getHours();
+            var body = document.body;
+            
+            if (currentHour >= 6 && currentHour < 18) {
+                // Daytime: light background
+                body.style.backgroundColor = "#e0f7fa";
+            } else {
+                // Nighttime: dark background
+                body.style.backgroundColor = "#2c3e50";
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Iris Species Prediction</h1>
+        <form method="post" action="/predict">
+            <div class="form-group">
+                <label for="sepal_length">Sepal Length:</label>
+                <input type="number" id="sepal_length" name="sepal_length" required>
+            </div>
+            <div class="form-group">
+                <label for="sepal_width">Sepal Width:</label>
+                <input type="number" id="sepal_width" name="sepal_width" required>
+            </div>
+            <div class="form-group">
+                <label for="petal_length">Petal Length:</label>
+                <input type="number" id="petal_length" name="petal_length" required>
+            </div>
+            <div class="form-group">
+                <label for="petal_width">Petal Width:</label>
+                <input type="number" id="petal_width" name="petal_width" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if species %}
+        <h2>Predicted Species: {{ species }}</h2>
+        {% elif error %}
+        <h2 class="error">{{ error }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
