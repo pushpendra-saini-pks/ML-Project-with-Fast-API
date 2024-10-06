@@ -6,7 +6,7 @@ from pydantic import BaseModel
 import joblib
 import numpy as np
 import os
-
+import uvicorn
 app = FastAPI()
 
 # Load the trained model using a relative path
